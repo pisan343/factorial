@@ -1,5 +1,5 @@
 /**
- * Factorial example using CATCH@brief CATCH framework example
+ * Factorial example using CATCH
  * @file main.cpp
  *
  *
