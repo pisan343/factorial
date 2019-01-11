@@ -18,7 +18,7 @@ echo "*** cpplint"
 cpplint *.cpp *.h
 
 echo "*** cppcheck"
-cppcheck --enable=all --inconclusive --language=c++ --std=posix --suppress=missingIncludeSystem *.cpp *.h
+cppcheck --enable=all --force --inconclusive --language=c++ --std=posix --suppress=missingIncludeSystem *.cpp *.h
 
 echo "*** running"
 ./myprogram.exe
