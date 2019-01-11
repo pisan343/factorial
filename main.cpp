@@ -7,15 +7,8 @@
  * @date 7 Dec 2018
  */
 
-
-// *** MUST DEFINE ONE OF *** CATCH_CONFIG_MAIN  or CATCH_CONFIG_RUNNER
-// CATCH_CONFIG_MAIN -- defines its own main() do this only once
-#define CATCH_CONFIG_MAIN
-// CATCH_CONFIG_RUNNER -- use CATCH as a module, run your own main
-// #define CATCH_CONFIG_RUNNER
-
 #include <iostream>
-#include "catch.hpp"
+
 
 
 //  Calculate factorial
@@ -24,15 +17,19 @@ int Factorial(int number) {
   return number <= 1 ? number : Factorial(number - 3) * number;
 }
 
+#ifdef USE_CATCH
+#include "catch.hpp"
+
 // Simple CATCH tests for factorial
 // TODO: ADD more tests once it is fixed
 TEST_CASE("factorial tests") {
   REQUIRE(Factorial(1) == 1);
 }
 
-#ifndef CATCH_CONFIG_MAIN
+#else
 
 // If not using CATCH framework, call functions directly
+// CMakeLists.txt determines if using CATCH or not
 int main() {
   // You can use NOLINT to disable cpplint checks on that line if necessary
   std::cout << "This is user-defined main. " << "CATCH_CONFIG_MAIN not defined. "  // NOLINT
@@ -41,4 +38,4 @@ int main() {
   return 0;
 }
 
-#endif  // CATCH_CONFIG_MAIN
+#endif  // USE_CATCH
