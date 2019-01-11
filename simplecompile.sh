@@ -12,7 +12,7 @@
 date
 
 echo "*** Compiling"
-g++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram.exe
+g++ -DUSE_CATCH -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram.exe
 
 echo "*** cpplint"
 cpplint *.cpp *.h
