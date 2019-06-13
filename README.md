@@ -1,5 +1,5 @@
 # factorial
-Calculate factorial and test it using CATCH
+Calculate factorial and test it using assert statements
 
 The factorial function in main.cpp is broken
 

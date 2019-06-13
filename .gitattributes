@@ -2,4 +2,4 @@
 * text = auto
 
 # Always have LF for unix script
-simplecompile.sh eol = lf
+simplecompile.sh eol=lf
