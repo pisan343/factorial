@@ -10,7 +10,7 @@
 //
 
 // Calculate factorial using recursive function
-// TODO student: FIX it, not working -- Remove this line after fixing it
+// TODO(student): FIX it, not working -- Remove this line after fixing it
 int Factorial(int number) {
   return number <= 1 ? number : Factorial(number - 3) * number;
 }
