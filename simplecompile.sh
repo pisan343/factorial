@@ -17,7 +17,7 @@
 date
 
 echo "*** Compiling"
-g++ -DUSE_CATCH -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram.exe
+g++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram.exe
 
 echo "*** cpplint"
 cpplint *.cpp *.h
@@ -28,8 +28,9 @@ cppcheck --enable=all --force --inconclusive --language=c++ --std=posix --suppre
 echo "*** running"
 ./myprogram.exe
 
-echo "*** running with valgrind"
-valgrind ./myprogram.exe
+# valgrind will detect memory leaks
+# echo "*** running with valgrind"
+# valgrind ./myprogram.exe
 
 echo "*** cleaning up"
 rm myprogram.exe
