@@ -25,6 +25,9 @@ cpplint *.cpp *.h
 echo "*** cppcheck"
 cppcheck --enable=all --force --inconclusive --language=c++ --std=posix --suppress=missingIncludeSystem *.cpp *.h
 
+echo "*** clang-tidy"
+clang-tidy *.cpp -- -checks=*
+
 echo "*** running"
 ./myprogram.exe
 
