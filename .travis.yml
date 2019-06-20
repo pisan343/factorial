@@ -17,7 +17,9 @@ before_install:
   - cppcheck --version
   - pip show cpplint
   - g++ --version
+  - clang-tidy--version
   - valgrind --version
+
 
 
 script:
