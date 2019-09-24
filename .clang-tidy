@@ -1,11 +1,12 @@
 # Configuration options for clang-tidy
 # CSS Linux machines, Sep 2019: LLVM version 3.8.1
 #
-# usage: clang-tidy *.cpp --
+# usage: clang-tidy *.cpp -- -std=c++14
 #
 #
 ---
-Checks: '*,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-google-build-using-namespace,-google-readability-braces-around-statements,-readability-braces-around-statements'
+# See https://clang.llvm.org/extra/clang-tidy/#using-clang-tidy for all possible checks
+Checks: '*,-fuchsia-*,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-google-build-using-namespace,-google-readability-braces-around-statements,-readability-braces-around-statements,-readability-braces-around-statements'
 
 HeaderFilterRegex: '.*'
 

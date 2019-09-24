@@ -1,0 +1,122 @@
+Tue Sep 24 14:19:59 PDT 2019
+*** compiling with clang++ to create an executable called myprogram
+clang version 9.0.0 (tags/RELEASE_900/final)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Users/pisan/homebrew/opt/llvm/bin
+factorial.cpp:24:28: warning: unused parameter 'number' [-Wunused-parameter]
+int factorialIterative(int number) {
+                           ^
+1 warning generated.
+*** running clang-tidy using options from .clang-tidy
+LLVM (http://llvm.org/):
+  LLVM version 9.0.0
+  Optimized build.
+  Default target: x86_64-apple-darwin16.7.0
+  Host CPU: skylake
+21396 warnings generated.
+43132 warnings generated.
+64528 warnings generated.
+/Users/pisan/bitbucket/pisan343/factorial/factorial.cpp:10:1: warning: #includes are not sorted properly [llvm-include-order]
+#include <iostream>
+^        ~~~~~~~~~~
+         <cmath>
+/Users/pisan/bitbucket/pisan343/factorial/factorial.cpp:18:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int factorialRecursive(int number) {
+~~~ ^
+auto                               -> int
+/Users/pisan/bitbucket/pisan343/factorial/factorial.cpp:24:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int factorialIterative(int number) {
+~~~ ^
+auto                               -> int
+/Users/pisan/bitbucket/pisan343/factorial/factorial.cpp:24:28: warning: parameter 'number' is unused [misc-unused-parameters]
+int factorialIterative(int number) {
+                           ^~~~~~
+                            /*number*/
+/Users/pisan/bitbucket/pisan343/factorial/factorial.cpp:30:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int factorial(int number) {
+~~~ ^
+auto                      -> int
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:11:1: warning: #includes are not sorted properly [llvm-include-order]
+#include <iostream>
+^        ~~~~~~~~~~
+         <cassert>
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:18:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int factorialRecursive(int x);
+~~~ ^
+auto                          -> int
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:19:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int factorialIterative(int x);
+~~~ ^
+auto                          -> int
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:20:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int factorial(int x);
+~~~ ^
+auto                 -> int
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:26:3: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [hicpp-no-array-decay]
+  assert(1 == factorialRecursive(1) && "factorialRecursive of 1 should be 1");
+  ^
+/usr/include/assert.h:93:47: note: expanded from macro 'assert'
+    (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __FILE__, __LINE__, #e) : (void)0)
+                                              ^
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:27:3: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [hicpp-no-array-decay]
+  assert(1 == factorialIterative(1) && "factorialIterative of 1 should be 1");
+  ^
+/usr/include/assert.h:93:47: note: expanded from macro 'assert'
+    (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __FILE__, __LINE__, #e) : (void)0)
+                                              ^
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:28:16: warning: invalid case style for variable 'ss' [readability-identifier-naming]
+  stringstream ss;
+               ^~
+               Ss
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:30:3: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [hicpp-no-array-decay]
+  assert("1" == ss.str() && "factorialWrite should be writing 1 to output stream");  
+  ^
+/usr/include/assert.h:93:47: note: expanded from macro 'assert'
+    (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __FILE__, __LINE__, #e) : (void)0)
+                                              ^
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:35:6: warning: invalid case style for function 'Test02' [readability-identifier-naming]
+void Test02() {
+     ^~~~~~
+     test02
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:36:3: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [hicpp-no-array-decay]
+  assert(1 == factorial(0));
+  ^
+/usr/include/assert.h:93:47: note: expanded from macro 'assert'
+    (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __FILE__, __LINE__, #e) : (void)0)
+                                              ^
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:41:6: warning: invalid case style for function 'Test03' [readability-identifier-naming]
+void Test03() {
+     ^~~~~~
+     test03
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:42:3: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [hicpp-no-array-decay]
+  assert(2 == factorial(2));
+  ^
+/usr/include/assert.h:93:47: note: expanded from macro 'assert'
+    (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __FILE__, __LINE__, #e) : (void)0)
+                                              ^
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:47:6: warning: invalid case style for function 'Test04' [readability-identifier-naming]
+void Test04() {
+     ^~~~~~
+     test04
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:48:3: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [hicpp-no-array-decay]
+  assert(120 == factorial(5));
+  ^
+/usr/include/assert.h:93:47: note: expanded from macro 'assert'
+    (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __FILE__, __LINE__, #e) : (void)0)
+                                              ^
+/Users/pisan/bitbucket/pisan343/factorial/factorialtest.cpp:53:6: warning: invalid case style for function 'Test05' [readability-identifier-naming]
+void Test05() {
+     ^~~~~~
+     test05
+/Users/pisan/bitbucket/pisan343/factorial/main.cpp:16:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int main() {
+~~~ ^
+auto       -> int
+Suppressed 64507 warnings (64507 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+*** running myprogram
+Assertion failed: ("1" == ss.str() && "factorialWrite should be writing 1 to output stream"), function test01, file factorialtest.cpp, line 30.
+./simplecompile.sh: line 28: 14208 Abort trap: 6           ./myprogram
+*** cleaning up, deleting myprogram
+Tue Sep 24 14:20:12 PDT 2019

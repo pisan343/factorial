@@ -11,13 +11,12 @@ dist: xenial
 
 # Removed, not using valgrind 
 #   - sudo apt-get install valgrind
+#   - valgrind --version
+# Removed to simplecompile script
+#   - clang++ --version
+#   - clang-tidy --version
 before_install:
   - uname -a
-  - clang++ --version
-  - clang-tidy --version
-  - valgrind --version
-
-
 
 script:
     - ./simplecompile.sh
