@@ -16,27 +16,21 @@
 
 date
 
-echo "*** Compiling"
-g++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram.exe
+echo "*** compiling with clang++ to create an executable called myprogram"
+clang++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram
 
-echo "*** cpplint"
-cpplint *.cpp *.h
+echo "*** running clang-tidy using options from .clang-tidy"
+clang-tidy *.cpp --
 
-echo "*** cppcheck"
-cppcheck --enable=all --force --inconclusive --language=c++ --std=posix --suppress=missingIncludeSystem *.cpp *.h
-
-echo "*** clang-tidy"
-clang-tidy -checks="*" *.cpp --
-
-echo "*** running"
-./myprogram.exe
+echo "*** running myprogram"
+./myprogram
 
 # valgrind will detect memory leaks
 # echo "*** running with valgrind"
 # valgrind ./myprogram.exe
 
-echo "*** cleaning up"
-rm myprogram.exe
+echo "*** cleaning up, deleting myprogram"
+rm myprogram
 
 date
 

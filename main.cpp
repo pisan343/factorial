@@ -1,20 +1,20 @@
 /**
- * Factorial example using CATCH
+ * A generic main file
  * @file main.cpp
  *
  *
  * @author Yusuf Pisan
- * @date 7 Dec 2018
+ * @date 24 Sep 2019
  */
 
 #include <iostream>
 
-// testAll is defined in another file
-void TestAll();
+// forward declaration, testAll is defined in another file
+void testAll();
 
 
 int main() {
-  TestAll();
+  testAll();
 
   std::cout << "Done!" << std::endl;
   return 0;

@@ -9,14 +9,11 @@ language: cpp
 
 dist: xenial
 
+# Removed, not using valgrind 
+#   - sudo apt-get install valgrind
 before_install:
-  - sudo apt-get install valgrind
-  - sudo apt-get install cppcheck
-  - sudo -H pip install cpplint
   - uname -a
-  - cppcheck --version
-  - pip show cpplint
-  - g++ --version
+  - clang++ --version
   - clang-tidy --version
   - valgrind --version
 
