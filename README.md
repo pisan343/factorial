@@ -99,4 +99,13 @@ the starting code for GitHub Classroom exercise
 
 **IF** you are not using this as part of Github Classroom, you can
 clone the repository using
+
 `git clone https://github.com/pisan343/factorial`
+
+When Travis CI runs the automated build, the results would be at
+
+https://travis-ci.com/pisan343/factorial
+
+When using via GitHub Classroom, the Travis CI output will be at
+
+xxxxx
