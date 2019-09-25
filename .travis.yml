@@ -18,6 +18,18 @@ dist: xenial
 before_install:
   - uname -a
 
+# Moved lines from simplecompile so TraviCI will show if
+# build actually succeeds or not
+#     - ./simplecompile.sh
 script:
-    - ./simplecompile.sh
+    - date
+    - echo "*** compiling with clang++ to create an executable called myprogram"
+    - clang++ --version
+    - clang++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram
+    - echo "*** running clang-tidy using options from .clang-tidy"
+    - clang-tidy --version
+    - clang-tidy *.cpp --
+    - echo "*** running myprogram"
+    - ./myprogram
+    - date
     - echo "Travis is done!"
