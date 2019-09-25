@@ -8,6 +8,7 @@
 # See https://clang.llvm.org/extra/clang-tidy/#using-clang-tidy for all possible checks
 Checks: '*,-fuchsia-*,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-google-build-using-namespace,-google-readability-braces-around-statements,-readability-braces-around-statements,-readability-braces-around-statements'
 
+WarningsAsErrors:  '*'
 HeaderFilterRegex: '.*'
 
 # Based on LLVM style in https://llvm.org/docs/CodingStandards.html#the-low-level-issues
