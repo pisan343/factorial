@@ -108,4 +108,9 @@ https://travis-ci.com/pisan343/factorial
 
 When using via GitHub Classroom, the Travis CI output will be at
 
-https://travis-ci.com/uwbclass/fixfactorial-yusufpisan
+https://travis-ci.com/uwbclass/fixfactorial-yourgithubusername
+
+Set your TravisCI account preferences at https://travis-ci.com/account/preferences
+so you get emails when your build passes or fails.
+
+
