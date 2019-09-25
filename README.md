@@ -65,7 +65,8 @@ clang-tidy *.cpp -- -std=c++14
 ```
 
 ### Style Explanation
-These options are defined in `.clang-tidy` file.
+These options are defined in `.clang-tidy` file. If you modify `.clang-tidy`, 
+you have to explain your style choices here.
 
 Perform all check except the following:
 
