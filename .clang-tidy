@@ -6,7 +6,7 @@
 #
 ---
 # See https://clang.llvm.org/extra/clang-tidy/#using-clang-tidy for all possible checks
-Checks: '*,-fuchsia-*,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-google-build-using-namespace,-google-readability-braces-around-statements,-readability-braces-around-statements,-readability-braces-around-statements'
+Checks: '*,-fuchsia-*,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-google-build-using-namespace,-google-readability-braces-around-statements,-readability-braces-around-statements,-hicpp-no-array-decay,-modernize-use-trailing-return-type'
 
 WarningsAsErrors:  '*'
 HeaderFilterRegex: '.*'
