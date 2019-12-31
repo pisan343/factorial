@@ -1,6 +1,16 @@
 #!/bin/bash
 
-# To more easily compile and run this program on CSS Linux Lab
+# The master version lives at https://github.com/pisanorg/w/wiki/simple-compile
+# Submit suggestions and modification on the wiki
+# Last Modified: 1 Jan 2020 - Yusuf Pisan
+
+
+# Easily compile and run this program under Linux, using
+#   Compiler: clang++ or g++
+#   Style Checker: clang-tidy with options from .clang-tidy
+#   Style Formatting: clang-format using LLVM style from .clang-format
+#   Memory Leak: valgrind and "ASAN_OPTIONS=detect_leaks=1" option
+
 # Lines starting with '$' indicate what is typed on command line
 
 # if you get the following error:
@@ -39,12 +49,23 @@ if hash id 2>/dev/null; then
   id
 fi
 
+# Choose compiler
+CC="NO-COMPILER"
+if hash clang++ 2>/dev/null; then
+  CC="clang++"
+elif hash g++ 2>/dev/null; then
+  CC="g++"
+  else
+  echo "*** ERROR could not find a compiler: No clang++ OR g++ ***"
+  CC="echo ERROR-NO-COMPILER "
+fi
+
 echo "==================================================================="
-echo "*** compiling with clang++ to create an executable called myprogram"
+echo "*** compiling with $CC to create an executable called myprogram"
 echo "==================================================================="
 
-clang++ --version
-clang++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram
+$CC --version
+$CC -std=c++14 -Wall -Wextra -Wno-sign-compare ./*.cpp -g -o myprogram
 
 echo "==================================================================="
 if [ -f myprogram ]; then
@@ -60,7 +81,7 @@ echo "==================================================================="
 if hash clang-tidy 2>/dev/null; then
   echo "*** running clang-tidy using options from .clang-tidy"
   clang-tidy --version
-  clang-tidy *.cpp -- -std=c++14
+  clang-tidy ./*.cpp -- -std=c++14
   check_last_command
 else
   echo "*** ERROR clang-tidy is not available on this system "
@@ -77,9 +98,9 @@ if hash clang-format 2>/dev/null; then
     echo "# clang-format -style=llvm -dump-config > .clang-format" >> .clang-format
     clang-format -style=llvm -dump-config >> .clang-format
   fi
-  for i in *.cpp; do
+  for i in ./*.cpp; do
     echo "*** formatting suggestions for $i"
-    clang-format $i | diff $i -
+    clang-format "$i" | diff "$i" -
   done
 else
   echo "*** ERROR clang-format is not available on this system"
@@ -90,7 +111,7 @@ if hash valgrind 2>/dev/null; then
   if [ -f myprogram ]; then
     echo "*** running valgrind to detect memory leaks"
     echo "*** Examine \"definitely lost\" "
-    valgrind --error-exitcode=111 --leak-check=full ./myprogram
+    valgrind --error-exitcode=111 --leak-check=full ./myprogram 2>&1 | grep "definitely lost"
     check_last_command
   else
     echo "*** ERROR could not find executable to test with valgrind"
@@ -100,8 +121,8 @@ else
 fi
 
 echo "==================================================================="
-echo "*** compiling with clang++ to checking for memory leaks"
-clang++ -std=c++14 -fsanitize=address -fno-omit-frame-pointer -g *.cpp -o myprogram
+echo "*** compiling with $CC to checking for memory leaks"
+$CC -std=c++14 -fsanitize=address -fno-omit-frame-pointer -g ./*.cpp -o myprogram
 
 echo "==================================================================="
 if [ -f myprogram ]; then
@@ -115,7 +136,9 @@ fi
 
 echo "==================================================================="
 echo "*** cleaning up, deleting myprogram"
-rm myprogram
+rm myprogram 2>/dev/null
+rm -rf myprogram.dSYM 2>/dev/null
+rm core 2>/dev/null
 
 echo "==================================================================="
 date
