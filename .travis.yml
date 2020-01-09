@@ -15,5 +15,5 @@ before_install:
 
 script:
     - echo "Start TravisCI"
-    - ./simplecompile.sh
+    - chmod 755 simplecompile.sh; ./simplecompile.sh
 
