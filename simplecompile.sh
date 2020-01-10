@@ -107,7 +107,7 @@ if hash valgrind 2>/dev/null; then
   if [ -f myprogram ]; then
     echo "*** running valgrind to detect memory leaks"
     echo "*** Examine \"definitely lost\" "
-    valgrind --error-exitcode=111 --leak-check=full ./myprogram 2>&1 > myprogram-valgrind-output.txt
+    valgrind --error-exitcode=111 --leak-check=full ./myprogram > myprogram-valgrind-output.txt 2>&1
     check_last_command
     grep "definitely lost" myprogram-valgrind-output.txt
   else
